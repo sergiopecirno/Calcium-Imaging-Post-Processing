@@ -693,7 +693,7 @@ class Calcium:
             raise ValueError("Save File does not exist... ")
         with open(self.data_save_file , 'rb') as f:
             loaded_dict = pickle.load(f)
-            self.__dict__.update(loaded_dict)  # ✅ merges instead of fully replacing
-            self.data_save_file = os.path.join(self.save_folder, 'data.pkl')  # ✅ reassign if necessary
+            self.__dict__.update(loaded_dict)  
+            self.data_save_file = os.path.join(self.save_folder, 'data.pkl')  
         print(colored(f"DATA Loaded FROM: {self.data_save_file}... \n","cyan"))
 

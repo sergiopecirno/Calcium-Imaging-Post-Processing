@@ -141,12 +141,26 @@ You can loop over multiple sessions by modifying the `i = 0` line.
 
 ## Outputs
 
-Each session produces:
+Each session will generate the following:
 
-- `fig/`: Folder of PDF figures (path, rate maps, histograms)
-- `data.pkl`: Serialized object storing all computed fields
-- `split_half_null_hist.pdf`: Permutation distribution of split-half correlations
-- `cumulative_proportion.pdf`: P-value cumulative distribution for place cells
+### Folder: `fig/`
+Contains visualizations for quick inspection and publication:
+
+- `path.pdf` – Mouse trajectory path in the environment.
+- `occupancy_matrix.pdf` – Heatmap of spatial sampling across the environment.
+- `rotational_velocity.pdf` – Histogram of rotational velocity (deg/s).
+- `linear_velocity.pdf` – Histogram of linear velocity (cm/s).
+- `split_half.pdf` – Boxplot of split-half correlations for place cell stability.
+- `spatial_information.pdf` – Histogram of spatial information (bits/spike).
+- `split_half_null_hist.pdf` – Overlaid null distribution and actual split-half histogram.
+- `cumulative_proportion.pdf` – Cumulative distribution of p-values (proportion of stable cells).
+- `spike_plot_rate_map_examp.pdf` – Path with overlaid spikes for most stable cell, alongside rate map.
+
+### File: `data.pkl`
+A Python pickle file containing all computed attributes from the `Calcium` class instance:
+- Position, traces, rate maps, split-half results, velocities, transitions, SR matrix, and more.
+
+This makes it easy to reload and interact with analyzed sessions without reprocessing the raw data.
 
 ## Generalization Notes
 
